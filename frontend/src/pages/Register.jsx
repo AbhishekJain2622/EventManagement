@@ -50,12 +50,12 @@ const RegisterPage = () => {
   return (
     <div className="flex min-h-[70vh] items-center justify-center">
       <GlassCard className="w-full max-w-4xl p-0">
-        <div className="grid overflow-hidden rounded-3xl bg-white/80 shadow-inner dark:bg-slate-950/80 md:grid-cols-2">
+        <div className="grid overflow-hidden rounded-3xl bg-white/80 shadow-inner dark:bg-black/80 md:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="hidden flex-col justify-between bg-gradient-to-br from-secondary/40 via-white/40 to-primary/30 p-10 text-slate-800 dark:from-secondary/20 dark:via-slate-900 dark:to-primary/20 md:flex"
+            className="hidden flex-col justify-between bg-gradient-to-br from-secondary/30 via-white/50 to-primary/30 p-10 text-slate-800 backdrop-blur-sm dark:from-secondary/20 dark:via-slate-900/80 dark:to-primary/20 md:flex"
           >
             <div>
               <h2 className="font-display text-3xl font-semibold">Create your planning hub</h2>
@@ -64,13 +64,13 @@ const RegisterPage = () => {
               </p>
             </div>
             <ul className="space-y-4 text-sm text-slate-600 dark:text-slate-300">
-              <li className="rounded-2xl border border-white/30 bg-white/60 p-4 shadow-sm dark:border-white/10 dark:bg-slate-900/70">
+              <li className="rounded-3xl border border-white/30 bg-white/60 p-4 shadow-sm dark:border-white/10 dark:bg-black/70">
                 Unlimited events with real-time updates
               </li>
-              <li className="rounded-2xl border border-white/30 bg-white/60 p-4 shadow-sm dark:border-white/10 dark:bg-slate-900/70">
+              <li className="rounded-3xl border border-white/30 bg-white/60 p-4 shadow-sm dark:border-white/10 dark:bg-black/70">
                 Shareable dashboards for clients and partners
               </li>
-              <li className="rounded-2xl border border-white/30 bg-white/60 p-4 shadow-sm dark:border-white/10 dark:bg-slate-900/70">
+              <li className="rounded-3xl border border-white/30 bg-white/60 p-4 shadow-sm dark:border-white/10 dark:bg-black/70">
                 Visual analytics to optimize your planning cadence
               </li>
             </ul>
@@ -117,14 +117,14 @@ const RegisterPage = () => {
               />
             </div>
             {(formError || authError) && (
-              <p className="rounded-2xl border border-secondary/30 bg-secondary/10 px-4 py-3 text-sm text-secondary dark:border-secondary/40 dark:bg-secondary/20">
+              <p className="rounded-3xl border border-secondary/30 bg-secondary/10 px-4 py-3 text-sm text-secondary dark:border-secondary/40 dark:bg-secondary/20">
                 {formError || authError}
               </p>
             )}
             <button
               type="submit"
               disabled={isAuthenticating}
-              className="rounded-full bg-secondary px-8 py-3 text-lg font-semibold text-white shadow-xl shadow-secondary/40 transition hover:-translate-y-1 hover:shadow-secondary/60 disabled:opacity-70"
+              className="rounded-full bg-gradient-to-r from-secondary to-primary px-8 py-4 text-lg font-bold text-white shadow-2xl shadow-secondary/50 transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-secondary/70 disabled:opacity-70 disabled:hover:scale-100 disabled:hover:translate-y-0"
             >
               {isAuthenticating ? 'Creating account...' : 'Create account'}
             </button>

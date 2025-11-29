@@ -34,12 +34,12 @@ const LoginPage = () => {
   return (
     <div className="flex min-h-[70vh] items-center justify-center">
       <GlassCard className="w-full max-w-3xl p-0 md:p-0">
-        <div className="grid overflow-hidden rounded-3xl bg-white/80 shadow-inner dark:bg-slate-950/80 md:grid-cols-2">
+        <div className="grid overflow-hidden rounded-3xl bg-white/80 shadow-inner dark:bg-black/80 md:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="hidden flex-col justify-between bg-gradient-to-br from-primary/40 via-white/40 to-secondary/30 p-10 text-slate-800 dark:from-primary/20 dark:via-slate-900 dark:to-secondary/20 md:flex"
+            className="hidden flex-col justify-between bg-gradient-to-br from-primary/30 via-white/50 to-secondary/30 p-10 text-slate-800 backdrop-blur-sm dark:from-primary/20 dark:via-slate-900/80 dark:to-secondary/20 md:flex"
           >
             <div>
               <h2 className="font-display text-3xl font-semibold">Welcome back</h2>
@@ -47,7 +47,7 @@ const LoginPage = () => {
                 Your events are synced and waiting. Sign in to continue orchestrating unforgettable experiences with PlanSync.
               </p>
             </div>
-            <div className="rounded-2xl border border-white/40 bg-white/60 p-6 text-sm shadow-lg backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/70">
+            <div className="rounded-3xl border border-white/40 bg-white/60 p-6 text-sm shadow-lg backdrop-blur-xl dark:border-white/10 dark:bg-black/70">
               <p className="font-semibold text-slate-700 dark:text-slate-200">Admin Login</p>
               <p className="text-slate-600 dark:text-slate-300">admin@plansync.com · admin123</p>
             </div>
@@ -82,14 +82,14 @@ const LoginPage = () => {
               onChange={handleChange}
             />
             {(formError || authError) && (
-              <p className="rounded-2xl border border-secondary/30 bg-secondary/10 px-4 py-3 text-sm text-secondary dark:border-secondary/40 dark:bg-secondary/20">
+              <p className="rounded-3xl border border-secondary/30 bg-secondary/10 px-4 py-3 text-sm text-secondary dark:border-secondary/40 dark:bg-secondary/20">
                 {formError || authError}
               </p>
             )}
             <button
               type="submit"
               disabled={isAuthenticating}
-              className="flex items-center justify-center rounded-full bg-primary px-8 py-3 text-lg font-semibold text-white shadow-xl shadow-primary/40 transition hover:-translate-y-1 hover:shadow-primary/60 disabled:cursor-not-allowed disabled:opacity-70 dark:bg-secondary"
+              className="flex items-center justify-center rounded-full bg-gradient-to-r from-primary to-secondary px-8 py-4 text-lg font-bold text-white shadow-2xl shadow-primary/50 transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-primary/70 disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:scale-100 disabled:hover:translate-y-0"
             >
               {isAuthenticating ? 'Signing in...' : 'Sign in'}
             </button>

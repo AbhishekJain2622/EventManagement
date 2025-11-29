@@ -39,7 +39,7 @@ const EventCalendar = ({ events = [] }) => {
   };
 
   return (
-    <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/70">
+    <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl backdrop-blur-xl dark:border-white/10 dark:bg-black/70">
       <div className="flex items-center justify-between">
         <div>
           <h2 className="font-display text-xl font-semibold text-slate-900 dark:text-white">Event Calendar</h2>
@@ -49,7 +49,7 @@ const EventCalendar = ({ events = [] }) => {
           <button
             type="button"
             onClick={() => handleMonthChange(-1)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-white/30 bg-white/70 text-primary hover:bg-primary/10 dark:border-white/10 dark:bg-slate-900/80 dark:text-secondary"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-3xl border border-white/30 bg-white/70 text-primary hover:bg-primary/10 dark:border-white/10 dark:bg-black/80 dark:text-secondary"
           >
             <ChevronLeft className="h-5 w-5" />
           </button>
@@ -59,7 +59,7 @@ const EventCalendar = ({ events = [] }) => {
           <button
             type="button"
             onClick={() => handleMonthChange(1)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-white/30 bg-white/70 text-primary hover:bg-primary/10 dark:border-white/10 dark:bg-slate-900/80 dark:text-secondary"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-3xl border border-white/30 bg-white/70 text-primary hover:bg-primary/10 dark:border-white/10 dark:bg-black/80 dark:text-secondary"
           >
             <ChevronRight className="h-5 w-5" />
           </button>
@@ -85,16 +85,16 @@ const EventCalendar = ({ events = [] }) => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
-              className={`flex min-h-[110px] flex-col gap-1 rounded-2xl border p-3 text-left ${
+              className={`flex min-h-[110px] flex-col gap-1 rounded-3xl border p-3 text-left ${
                 isCurrentMonth
-                  ? 'border-white/30 bg-white/60 dark:border-white/10 dark:bg-slate-900/60'
-                  : 'border-dashed border-white/20 bg-white/30 text-slate-400 dark:border-white/5 dark:bg-slate-900/30'
+                  ? 'border-white/30 bg-white/60 dark:border-white/10 dark:bg-black/60'
+                  : 'border-dashed border-white/20 bg-white/30 text-slate-400 dark:border-white/5 dark:bg-black/30'
               } ${isToday ? 'ring-2 ring-primary/40 dark:ring-secondary/40' : ''}`}
             >
               <span className="text-xs font-semibold text-slate-500 dark:text-slate-300">{format(date, 'd')}</span>
               <div className="flex flex-col gap-2">
                 {dailyEvents.slice(0, 2).map((event) => (
-                  <div key={event.id} className="rounded-2xl bg-primary/10 px-2 py-1 text-xs font-semibold text-primary dark:bg-secondary/20 dark:text-secondary">
+                  <div key={event.id} className="rounded-3xl bg-primary/10 px-2 py-1 text-xs font-semibold text-primary dark:bg-secondary/20 dark:text-secondary">
                     {event.title}
                   </div>
                 ))}

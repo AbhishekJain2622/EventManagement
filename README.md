@@ -57,6 +57,7 @@ PlanSync/
 - `GET /api/users/profile/` – Retrieve the authenticated user profile
 - `GET/POST /api/events/` – List (with role-aware filtering) or create events
 - `GET/PATCH/DELETE /api/events/<id>/` – Manage individual events
+- `POST /api/events/<id>/remind/` – Send a manual reminder email for an event
 - `GET /api/dashboard/stats/` – Return analytics payload for the admin dashboard
 
 **Seeded Admin Account**
@@ -105,13 +106,38 @@ The React app will automatically proxy requests to `http://localhost:8000/api/` 
 
 ## Environment Configuration
 
-| Setting                         | Location                         | Default                             |
-|---------------------------------|----------------------------------|--------------------------------------|
+| Setting                         | Location / Variable              | Default                             |
+|---------------------------------|----------------------------------|-------------------------------------|
 | Allowed CORS origins            | `backend/config/settings.py`     | `http://localhost:5173`             |
 | API base URL (frontend)         | `src/utils/constants.js`         | `http://localhost:8000/api`         |
 | JWT token storage key           | `src/utils/constants.js`         | `plansync.tokens`                   |
+| Gmail SMTP username             | `EMAIL_HOST_USER` env var        | _empty_ (email disabled)            |
+| Gmail SMTP app password         | `EMAIL_HOST_PASSWORD` env var    | _empty_ (email disabled)            |
+| Default sender email            | `DEFAULT_FROM_EMAIL` env var     | Matches `EMAIL_HOST_USER`           |
 
 Adjust these values and Tailwind color tokens to suit production deployments.
+
+---
+
+### Gmail SMTP setup
+
+1. **Create a Gmail App Password (required)**  
+   - Enable 2FA on your Google account.  
+   - Visit [https://myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords) and generate a new app password (choose "Mail" and "Other").  
+   - Copy the 16-character password; you'll use it as `EMAIL_HOST_PASSWORD`.
+
+2. **Export the credentials before starting Django** (PowerShell example):
+   ```powershell
+   $env:EMAIL_HOST_USER = "your-address@gmail.com"
+   $env:EMAIL_HOST_PASSWORD = "abcd efgh ijkl mnop"  # The app password without spaces
+   $env:DEFAULT_FROM_EMAIL = "PlanSync <your-address@gmail.com>"
+   ```
+
+3. **Launch the backend as usual.** Any successful user registration now triggers a welcome email through Gmail SMTP. Misconfigured credentials simply skip the email without blocking sign-ups (see logs for warnings).
+
+4. **Trigger notifications**
+   - Creating an event via `POST /api/events/` emails every registered user about the new schedule.
+   - To send a manual reminder later, hit `POST /api/events/<event_id>/remind/` (available to the creator or admins) — perfect for wiring to a "Remind" button in the UI.
 
 ---
 

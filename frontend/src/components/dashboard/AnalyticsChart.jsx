@@ -9,7 +9,7 @@ import {
 } from 'recharts';
 
 const AnalyticsChart = ({ data = [], title = 'Monthly Engagement' }) => (
-  <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/70">
+  <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl backdrop-blur-xl dark:border-white/10 dark:bg-black/70">
     <div className="flex items-center justify-between">
       <div>
         <h3 className="font-display text-xl font-semibold text-slate-900 dark:text-white">{title}</h3>

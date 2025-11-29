@@ -11,7 +11,7 @@ const DashboardLayout = ({ title, subtitle, actions = null, children }) => (
       transition={{ duration: 0.4 }}
       className="flex flex-col gap-6"
     >
-      <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/70">
+      <div className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl backdrop-blur-xl dark:border-white/10 dark:bg-black/70">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
             <h1 className="font-display text-2xl font-semibold text-slate-900 dark:text-white">{title}</h1>

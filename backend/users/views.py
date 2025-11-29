@@ -1,4 +1,8 @@
+import logging
+
+from django.conf import settings
 from django.contrib.auth import authenticate, get_user_model
+from django.core.mail import send_mail
 from django.utils import timezone
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
@@ -13,11 +17,42 @@ from .serializers import (
 )
 
 User = get_user_model()
+logger = logging.getLogger(__name__)
 
 
 class RegisterView(generics.CreateAPIView):
     permission_classes = [permissions.AllowAny]
     serializer_class = RegisterSerializer
+
+    def perform_create(self, serializer):
+        user = serializer.save()
+        self._send_welcome_email(user)
+
+    def _send_welcome_email(self, user):
+        host_user = getattr(settings, 'EMAIL_HOST_USER', '')
+        host_password = getattr(settings, 'EMAIL_HOST_PASSWORD', '')
+        from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', host_user)
+        if not (host_user and host_password and from_email):
+            return
+
+        first_name = user.first_name or user.email
+        subject = 'Welcome to PlanSync'
+        message = (
+            f"Hi {first_name},\n\n"
+            "Thanks for registering with PlanSync. You're all set to log in and explore the dashboard.\n\n"
+            "If this wasn't you, please contact support immediately."
+        )
+
+        try:
+            send_mail(
+                subject=subject,
+                message=message,
+                from_email=from_email,
+                recipient_list=[user.email],
+                fail_silently=False,
+            )
+        except Exception as exc:  # pragma: no cover - best effort notification
+            logger.warning("Failed to send welcome email to %s: %s", user.email, exc)
 
 
 class LoginView(APIView):

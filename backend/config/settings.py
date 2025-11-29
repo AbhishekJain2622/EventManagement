@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
+
 from datetime import timedelta
 from pathlib import Path
 
@@ -168,3 +170,17 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 CORS_ALLOW_CREDENTIALS = True
+# Email configuration (Gmail SMTP)
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+# Directly using your credentials
+EMAIL_HOST_USER = 'jain49218@gmail.com'
+EMAIL_HOST_PASSWORD = 'mlfm hjcx pzwe nfhp'
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+

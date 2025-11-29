@@ -33,11 +33,11 @@ const ForgotPasswordPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           onSubmit={handleSubmit}
-          className="rounded-3xl bg-white/80 p-10 shadow-inner dark:bg-slate-950/80"
+          className="rounded-3xl bg-white/80 p-10 shadow-inner dark:bg-black/80"
         >
           <h2 className="font-display text-3xl font-semibold text-slate-900 dark:text-white">Forgot your password?</h2>
           <p className="mt-3 text-sm text-slate-500 dark:text-slate-300">
-            Enter your email address and we’ll send you instructions to reset your password.
+            Enter your email address and we'll send you instructions to reset your password.
           </p>
           <div className="mt-8">
             <FormInput
@@ -49,11 +49,11 @@ const ForgotPasswordPage = () => {
               placeholder="you@plansync.com"
             />
           </div>
-          {status && <p className="mt-4 rounded-2xl bg-primary/10 px-4 py-3 text-sm text-primary">{status}</p>}
-          {error && <p className="mt-4 rounded-2xl bg-secondary/10 px-4 py-3 text-sm text-secondary">{error}</p>}
+          {status && <p className="mt-4 rounded-3xl bg-primary/10 px-4 py-3 text-sm text-primary">{status}</p>}
+          {error && <p className="mt-4 rounded-3xl bg-secondary/10 px-4 py-3 text-sm text-secondary">{error}</p>}
           <button
             type="submit"
-            className="mt-6 w-full rounded-full bg-primary px-8 py-3 text-lg font-semibold text-white shadow-xl shadow-primary/40 transition hover:-translate-y-1 hover:shadow-primary/60 dark:bg-secondary"
+            className="mt-6 w-full rounded-full bg-gradient-to-r from-primary to-secondary px-8 py-4 text-lg font-bold text-white shadow-2xl shadow-primary/50 transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-primary/70"
           >
             Send reset link
           </button>

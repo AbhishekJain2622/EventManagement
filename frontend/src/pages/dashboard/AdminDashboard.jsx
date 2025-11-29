@@ -63,9 +63,9 @@ const AdminDashboard = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/70"
+            className="glass-card rounded-3xl p-6"
           >
-            <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-300">{item.label}</p>
+            <p className="text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-300">{item.label}</p>
             <p className="mt-3 text-3xl font-bold text-primary dark:text-secondary">{item.value}</p>
             <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
               Keep optimizing resource planning to maintain smooth execution.

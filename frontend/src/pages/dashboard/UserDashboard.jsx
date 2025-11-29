@@ -90,10 +90,10 @@ const UserDashboard = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
           onSubmit={handleSubmit}
-          className="rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/70"
+          className="glass-card rounded-3xl p-6"
         >
-          <h3 className="font-display text-xl font-semibold text-slate-900 dark:text-white">Quick add event</h3>
-          <p className="text-sm text-slate-500 dark:text-slate-300">Stay ahead by capturing milestones instantly.</p>
+          <h3 className="font-display text-xl font-bold text-slate-900 dark:text-white">Quick add event</h3>
+          <p className="mt-2 text-sm font-medium text-slate-500 dark:text-slate-300">Stay ahead by capturing milestones instantly.</p>
           <div className="mt-6 space-y-4">
             <FormInput
               label="Event title"
@@ -102,7 +102,7 @@ const UserDashboard = () => {
               onChange={handleChange}
               placeholder="Executive Retreat"
             />
-            <label className="flex flex-col gap-2 text-sm font-medium text-slate-600 dark:text-slate-300">
+            <label className="flex flex-col gap-2 text-sm font-semibold text-slate-700 dark:text-slate-200">
               Description
               <textarea
                 name="description"
@@ -110,10 +110,10 @@ const UserDashboard = () => {
                 onChange={handleChange}
                 placeholder="Add optional notes for your team."
                 rows={3}
-                className="rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 text-sm shadow-inner focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 dark:border-slate-700 dark:bg-slate-900"
+                className="rounded-2xl border-2 border-slate-200 bg-white/90 px-4 py-3 text-sm shadow-sm transition-all duration-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 dark:border-slate-700 dark:bg-black/90 dark:focus:border-primary dark:focus:ring-primary/30"
               />
             </label>
-            <label className="flex flex-col gap-2 text-sm font-medium text-slate-600 dark:text-slate-300">
+            <label className="flex flex-col gap-2 text-sm font-semibold text-slate-700 dark:text-slate-200">
               Date & time
               <input
                 type="datetime-local"
@@ -121,12 +121,12 @@ const UserDashboard = () => {
                 value={formState.event_date}
                 onChange={handleChange}
                 required
-                className="rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 text-sm shadow-inner focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 dark:border-slate-700 dark:bg-slate-900"
+                className="rounded-2xl border-2 border-slate-200 bg-white/90 px-4 py-3 text-sm shadow-sm transition-all duration-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 dark:border-slate-700 dark:bg-black/90 dark:focus:border-primary dark:focus:ring-primary/30"
               />
             </label>
             {feedback && (
               <p
-                className={`rounded-2xl px-4 py-3 text-sm ${
+                className={`rounded-3xl px-4 py-3 text-sm ${
                   feedback.type === 'success'
                     ? 'bg-emerald-100/70 text-emerald-700'
                     : 'bg-secondary/10 text-secondary'
@@ -137,7 +137,7 @@ const UserDashboard = () => {
             )}
             <button
               type="submit"
-              className="w-full rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-xl shadow-primary/40 transition hover:-translate-y-1 hover:shadow-primary/60 dark:bg-secondary"
+              className="w-full rounded-full bg-gradient-to-r from-primary to-secondary px-6 py-3 text-sm font-bold text-white shadow-xl shadow-primary/50 transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-primary/70"
             >
               Add event
             </button>

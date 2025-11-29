@@ -6,7 +6,7 @@ export const STORAGE_KEYS = {
 };
 
 export const NAV_LINKS = [
-  { label: 'Features', href: '#features' },
-  { label: 'Testimonials', href: '#testimonials' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Features', href: '/features' },
+  { label: 'Testimonials', href: '/testimonials' },
+  { label: 'Contact', href: '/contact' },
 ];
